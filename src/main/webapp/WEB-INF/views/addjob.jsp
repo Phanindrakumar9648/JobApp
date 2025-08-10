@@ -8,10 +8,10 @@
 </head>
 <body>
     <h2>Add Job</h2>
-    <form action="submitJob" method="post">
-        <label>Title: </label><input type="text" name="title" required/><br>
-        <label>Description: </label><input type="text" name="description" required/><br>
-        <button type="submit">Submit</button>
-    </form>
+   <form action="submitJob" method="post">
+       <label>Title: </label><input type="text" name="title" required/><br>
+       <label>Description: </label><input type="text" name="description" required/><br>
+       <button type="submit">Submit</button>
+   </form>
 </body>
 </html>

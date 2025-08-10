@@ -1,17 +1,19 @@
 package com.build.JobApp.controller;
 
 import com.build.JobApp.Domain.Job;
+import com.build.JobApp.dao.JobRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class JobController {
+public class JobWebController {
 
-    private List<Job> jobList = new ArrayList<>();
+    @Autowired
+    private JobRepo jobRepo;
 
     @GetMapping("/")
     public String home() {
@@ -24,19 +26,22 @@ public class JobController {
     }
 
     @PostMapping("/submitJob")
-    public String submitJob(@RequestParam String title,
+    public String submitJob(
+                            @RequestParam String title,
                             @RequestParam String description,
                             Model model) {
         Job job = new Job(title, description);
-        jobList.add(job);
-        model.addAttribute("title", title);
-        model.addAttribute("description", description);
+        Job savedJob = jobRepo.save(job);
+        model.addAttribute("id", savedJob.getId());
+        model.addAttribute("title", savedJob.getTitle());
+        model.addAttribute("description", savedJob.getDescription());
         return "success";
     }
 
     @GetMapping("/viewjobs")
     public String viewJobs(Model model) {
-        model.addAttribute("jobs", jobList);
+        List<Job> jobs = jobRepo.findAll(); // Load from database
+        model.addAttribute("jobs", jobs);
         return "viewalljobs";
     }
 

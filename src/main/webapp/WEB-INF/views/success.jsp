@@ -8,8 +8,9 @@
 </head>
 <body>
     <h2>Job Posted Successfully</h2>
-    <p>Title: ${title}</p>
-    <p>Description: ${description}</p>
+    <p><strong>ID:</strong> ${id}</p>
+    <p><strong>Title:</strong> ${title}</p>
+    <p><strong>Description:</strong> ${description}</p>
     <a href="/">Go Home</a>
 </body>
 </html>

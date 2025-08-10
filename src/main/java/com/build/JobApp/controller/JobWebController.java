@@ -25,7 +25,7 @@ public class JobWebController {
         return "addjob";
     }
 
-    @PostMapping("/submitJob")
+    @PostMapping("/submitjob")
     public String submitJob(
                             @RequestParam String title,
                             @RequestParam String description,

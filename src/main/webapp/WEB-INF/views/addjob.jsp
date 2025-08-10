@@ -8,10 +8,12 @@
 </head>
 <body>
     <h2>Add Job</h2>
-   <form action="submitJob" method="post">
-       <label>Title: </label><input type="text" name="title" required/><br>
-       <label>Description: </label><input type="text" name="description" required/><br>
-       <button type="submit">Submit</button>
-   </form>
+  <form action="submitjob" method="post">
+      <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+      <label>Title: </label><input type="text" name="title" required/><br>
+      <label>Description: </label><input type="text" name="description" required/><br>
+      <button type="submit">Submit</button>
+  </form>
+
 </body>
 </html>

@@ -72,6 +72,10 @@
 			<artifactId>postgresql</artifactId>
 			<version>42.7.3</version> <!-- You can use the latest version -->
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
